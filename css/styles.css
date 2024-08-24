@@ -36,8 +36,44 @@ html {
     p, h1, h2, h3, h4, h5, h6 {
         margin-bottom: 1rem; /* Weniger Abstand zwischen den Elementen */
     }
+    header nav .logo {
+        max-width: 120px; /* Kleinere Logo-Größe bei 768px */
+    }
 }
 
+@media (max-width: 1024px) {
+    header nav ul li a {
+        font-size: 0.95rem; /* Leicht kleinere Schriftgröße bei 1024px */
+    }
+
+    header nav .logo {
+        max-width: 130px; /* Kleinere Logo-Größe bei 1024px */
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul {
+        display: none; /* Navigation ausblenden für Mobilansicht */
+    }
+
+    header nav .logo {
+        max-width: 100px; /* Kleinere Logo-Größe bei 480px */
+    }
+
+    .burger-menu {
+        display: flex; /* Burger-Menü anzeigen */
+    }
+}
+
+@media (max-width: 375px) {
+    header nav .logo {
+        max-width: 90px; /* Kleinste Logo-Größe für sehr kleine Bildschirme */
+    }
+    
+    header {
+        padding: 0.5rem 1rem; /* Reduziere den Padding für sehr kleine Bildschirme */
+    }
+}
 
 
 
@@ -255,21 +291,19 @@ header nav ul li a:hover {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    
 }
 
 .team-member {
     text-align: center;
     width: calc(25% - 2rem); /* Vier Spalten */
+    margin-bottom: 2rem;
 }
 
 .team-member img {
     max-width: 100%;
     height: auto;
     border-radius: 50%;
- 
 }
-
 
 .team-member p {
     font-size: 1rem;
@@ -279,8 +313,7 @@ header nav ul li a:hover {
 /* Responsive Anpassungen */
 @media (max-width: 1024px) {
     .team-member {
-        width: 100%; /* Eine Spalte auf sehr kleinen Bildschirmen */
-        margin-bottom: 1.5rem; /* Fügt Abstand zwischen den Teammitgliedern hinzu */
+        width: calc(33.33% - 2rem); /* Drei Spalten bei kleineren Bildschirmen */
     }
 }
 
@@ -292,9 +325,51 @@ header nav ul li a:hover {
 
 @media (max-width: 480px) {
     .team-member {
-        width: 100%; /* Eine Spalte bei sehr kleinen Bildschirmen */
+        width: calc(50% - 1rem); /* Zwei Spalten bei Bildschirmen bis 480px */
+        margin-bottom: 1.5rem;
+    }
+
+    body {
+        font-size: 0.9rem; /* Passe die Schriftgröße auf der ganzen Seite an */
+    }
+
+    #team h2 {
+        font-size: 1.8rem; /* Kleinere Überschrift auf Bildschirmen bis 480px */
+    }
+
+    .team-category h3 {
+        font-size: 1.4rem; /* Kleinere Unterüberschrift auf Bildschirmen bis 480px */
+    }
+
+    .team-member p {
+        font-size: 0.85rem; /* Kleinere Schriftgröße für Text */
     }
 }
+
+@media (max-width: 375px) {
+    .team-member {
+        width: calc(50% - 1rem); /* Zwei Spalten bei Bildschirmen bis 375px */
+        margin-bottom: 1rem;
+    }
+
+    body {
+        font-size: 0.85rem; /* Noch kleinere Schriftgröße auf Bildschirmen bis 375px */
+    }
+
+    #team h2 {
+        font-size: 1.6rem; /* Noch kleinere Überschrift auf Bildschirmen bis 375px */
+    }
+
+    .team-category h3 {
+        font-size: 1.3rem; /* Noch kleinere Unterüberschrift auf Bildschirmen bis 375px */
+    }
+
+    .team-member p {
+        font-size: 0.8rem; /* Noch kleinere Schriftgröße für Text */
+    }
+}
+
+
 
 
 
