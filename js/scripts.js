@@ -53,7 +53,7 @@ function setCookie(name, value, hours, domain) {
         expires = "; expires=" + date.toUTCString();
     }
     var domainAttribute = domain ? "; domain=" + domain : "";
-    document.cookie = name + "=" + (value || "") + expires + "; path=/" + domainAttribute;
+    document.cookie = name + "=" + (value || "") + expires + "; path=/" + domainAttribute + "; samesite=lax";
     console.log('Cookie set:', name + "=" + (value || "") + expires + "; path=/" + domainAttribute);
 }
 
@@ -71,6 +71,7 @@ function getCookie(name) {
 // Überprüft, ob der Cookie-Banner angezeigt werden muss
 function checkCookieConsent() {
     var cookieConsent = getCookie('cookies_accepted');
+    console.log("Cookie Consent Check:", cookieConsent); // Debugging-Log
     if (!cookieConsent) {
         document.getElementById('cookie-banner').style.display = 'block';
     } else {
