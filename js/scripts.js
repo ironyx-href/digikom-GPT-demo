@@ -111,15 +111,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Cookies akzeptieren
     document.getElementById('accept-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'true', 365);
+        setCookie('cookies_accepted', 'true', 365, '.github.io'); // Verwende die GitHub.io-Domain
         document.getElementById('cookie-banner').style.display = 'none';
         loadClarity();
         console.log('Cookies accepted');
     });
 
+    
     // Cookies ablehnen
     document.getElementById('decline-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'false', 365);
+        setCookie('cookies_accepted', 'false', 365, '.github.io'); // Verwende die GitHub.io-Domain
         document.getElementById('cookie-banner').style.display = 'none';
         console.log('Cookies declined');
     });
@@ -140,6 +141,8 @@ function setCookie(name, value, days) {
     }
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
+
+
 
 function getCookie(name) {
     var nameEQ = name + "=";
