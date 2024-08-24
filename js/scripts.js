@@ -18,11 +18,6 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 
-
-
-
-
-
 // Fade-in Sections on Scroll
 const faders = document.querySelectorAll('.fade-in-section');
 
@@ -100,9 +95,6 @@ document.getElementById("loadMoreBtn").addEventListener("click", function() {
     this.style.display = "none"; // Blendet den Button aus
 });
 
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     // Cookie-Banner anzeigen, wenn noch keine Entscheidung getroffen wurde
     if (!getCookie('cookies_accepted')) {
@@ -117,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Cookies accepted');
     });
 
-    
     // Cookies ablehnen
     document.getElementById('decline-cookies').addEventListener('click', function () {
         setCookie('cookies_accepted', 'false', 365, '.github.io'); // Verwende die GitHub.io-Domain
@@ -132,17 +123,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-function setCookie(name, value, days) {
+function setCookie(name, value, days, domain) {
     var expires = "";
     if (days) {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    var domainAttribute = domain ? "; domain=" + domain : "";
+    document.cookie = name + "=" + (value || "") + expires + "; path=/" + domainAttribute;
 }
-
-
 
 function getCookie(name) {
     var nameEQ = name + "=";
@@ -155,7 +145,6 @@ function getCookie(name) {
     return null;
 }
 
-
 function loadClarity() {
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -163,9 +152,6 @@ function loadClarity() {
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "nqef003es7");
 }
-
-// Andere Funktionen und Event-Listener
-
 
 document.getElementById('mehrErfahren').addEventListener('click', function(event) {
     event.preventDefault(); // Verhindert das Standardverhalten des Links
@@ -179,28 +165,3 @@ document.getElementById('mehrErfahren').addEventListener('click', function(event
 });
 
 console.log('Cookie accepted status:', getCookie('cookies_accepted'));
-
-document.getElementById('accept-cookies').addEventListener('click', function () {
-    setCookie('cookies_accepted', 'true', 365);
-    console.log('Cookies accepted');
-    document.getElementById('cookie-banner').style.display = 'none';
-    loadClarity();
-});
-
-document.getElementById('decline-cookies').addEventListener('click', function () {
-    setCookie('cookies_accepted', 'false', 365);
-    console.log('Cookies declined');
-    document.getElementById('cookie-banner').style.display = 'none';
-});
-
-if (getCookie('cookies_accepted') === 'true') {
-    console.log('Loading Clarity');
-    loadClarity();
-}
-
-
-
-
-
-
-
