@@ -1,0 +1,1081 @@
+/* Grundlegende Stile */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: #002E5D;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+html {
+    overflow-x: hidden; /* Verhindert horizontales Scrollen */
+    width: 100%;
+}
+
+/* Generelle Anpassungen für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 0 15px; /* Reduziert das Padding für mehr Platz auf dem Bildschirm */
+    }
+
+    section {
+        padding: 4rem 1.5rem; /* Reduziert das Padding für Sektionen */
+    }
+
+    header nav ul li a {
+        font-size: 1rem; /* Kleinere Schriftgröße für die Navigation */
+    }
+    body {
+        font-size: 14px; /* Kleinere Standard-Schriftgröße */
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 1rem; /* Weniger Abstand zwischen den Elementen */
+    }
+}
+
+
+
+
+
+/* Wrapper für zentrierten Inhalt */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Globale Stile für Sektionen */
+section {
+    width: 100%;
+    padding: 6rem 2rem;
+    box-sizing: border-box;
+    
+    
+}
+
+/* Header */
+header {
+    background: #002E5D;
+    color: #FFFFFF;
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 1.2rem;
+}
+
+header nav ul li a:hover {
+    color: #A8C686;
+}
+
+.logo {
+    max-width: 150px;
+    margin-right: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+#hero {
+    position: relative;
+    overflow: hidden;
+    color: #002E5D;
+    text-align: center;
+    padding: 7rem 2rem;
+    width: 100%;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 500%;
+    animation: slide 20s infinite;
+}
+
+.slide {
+    width: 20%;
+    transition: 0.5s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+@keyframes slide {
+    0%, 20%, 100% { transform: translateX(0%); }
+    25%, 45% { transform: translateX(-20%); }
+    50%, 70% { transform: translateX(-40%); }
+    75%, 95% { transform: translateX(-60%); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; /* Erhöhte Schriftgröße für mehr Fokus */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    font-size: 1.5rem; /* Größere Schrift für mehr Lesbarkeit */
+    margin-bottom: 2.5rem;
+}
+
+.hero-content .btn {
+    background: #002E5D;
+    color: #FFFFFF;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 1.2rem; /* Größere Schaltflächen für bessere Auffälligkeit */
+}
+
+.hero-content .btn:hover {
+    background: #D8C3A5;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Kleinere Schriftgröße für Überschrift */
+    }
+
+    .hero-content p {
+        font-size: 1.2rem; /* Kleinere Schriftgröße für den Text */
+    }
+
+    .hero-content .btn {
+        font-size: 1rem; /* Kleinere Schaltfläche */
+        padding: 0.5rem 1rem; /* Weniger Padding */
+    }
+
+    #hero {
+        padding: 4rem 1rem; /* Weniger Padding in der Hero Section */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem; /* Reduzierte Schriftgröße */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Reduzierte Schriftgröße */
+    }
+
+    .hero-content .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+/* Team Section */
+#team {
+    padding: 4rem 2rem;
+    background-color: #FFFFFF;
+    color: #002E5D;
+}
+
+#team .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#team h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.team-category {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.team-category h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #002E5D;
+    text-transform: uppercase;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+
+.team-member {
+    text-align: center;
+    width: calc(25% - 2rem); /* Vier Spalten */
+}
+
+.team-member img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+ 
+}
+
+
+.team-member p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 1024px) {
+    .team-member {
+        width: 100%; /* Eine Spalte auf sehr kleinen Bildschirmen */
+        margin-bottom: 1.5rem; /* Fügt Abstand zwischen den Teammitgliedern hinzu */
+    }
+}
+
+@media (max-width: 768px) {
+    .team-member {
+        width: calc(50% - 2rem); /* Zwei Spalten bei Tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member {
+        width: 100%; /* Eine Spalte bei sehr kleinen Bildschirmen */
+    }
+}
+
+
+
+
+
+
+/* Blog Section */
+#blog {
+    background-color: #B0A8B9;
+    color: #002E5D;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        width: 100%;
+}
+
+#blog h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.blog-post {
+    background-color: #D8C3A5;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.blog-post img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.blog-post h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: #002E5D;
+}
+
+.blog-post p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: #002E5D;
+    flex: 1;
+}
+
+.blog-post .read-more {
+    background: #002E5D;
+    color: #FFFFFF;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    align-self: flex-end;
+    font-size: 1.2rem;
+}
+
+.blog-post .read-more:hover {
+    background-color: #A8C686; /* Beispiel für dunklere Farbe bei Hover */
+    transform: translateY(-2px);
+}
+
+.blog-post:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#loadMoreBtn {
+    background-color: #002E5D;
+    color: #FFFFFF;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+#loadMoreBtn:hover {
+    background-color: #A8C686;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .blog-posts {
+        grid-template-columns: 1fr; /* Eine Spalte für Smartphones */
+    }
+
+    .blog-post h3 {
+        font-size: 1.5rem; /* Kleinere Schriftgröße für den Titel */
+    }
+
+    .blog-post p {
+        font-size: 1rem; /* Kleinere Schriftgröße für den Text */
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post {
+        margin-bottom: 2.5rem; /* Fügt mehr Abstand zwischen den Blog-Beiträgen hinzu */
+    }
+}
+
+/* Pop-up Fenster aka Modal */ 
+.modal {
+    display: none; /* Standardmäßig versteckt */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px; /* Maximale Breite des Pop-ups */
+    width: 90%;
+    background-color: #ffffff; /* Hintergrundfarbe */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Schatten für mehr Tiefe */
+    overflow-y: auto;
+    max-height: 80vh; /* Beschränkung der Höhe, damit das Pop-up nicht zu groß wird */
+}
+
+.modal h2 {
+    font-size: 1.8rem; /* Überschrift größer und auffälliger */
+    margin-bottom: 1rem;
+    color: #002E5D;
+}
+
+.modal p {
+    line-height: 1.6; /* Erhöhter Zeilenabstand für bessere Lesbarkeit */
+    color: #333333;
+}
+
+.modal .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #888888;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal .close:hover {
+    color: #002E5D; /* Farbe des Schließen-Buttons bei Hover */
+}
+
+.modal {
+    padding: 2.5rem; /* Erhöhter Padding für mehr Platz um den Text */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Etwas stärkerer Schatten für mehr Tiefe */
+}
+
+.modal .close {
+    font-size: 1.8rem; /* Größerer Schließen-Button */
+    color: #444444; /* Etwas dunklere Farbe für mehr Kontrast */
+}
+
+.modal .close:hover {
+    color: #ff0000; /* Auffällige Farbe bei Hover */
+}
+
+
+
+
+/* Kontakt Section */
+#contact {
+    background-color: #FFFFFF;
+    color: #002E5D;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-evenly;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    padding-bottom: 100px;
+    align-items: center;
+}
+
+#contact .wrapper {
+    width: 100%;
+    max-width: 1000px; /* Etwas schmaler für mehr Fokus auf das Formular */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Vertikale Ausrichtung */
+    align-items: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem; /* Reduzierte Schriftgröße für besseren Fokus */
+  
+    color: #002E5D;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#contact p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    text-align: center; /* Zentrierter Text für eine einheitliche Optik */
+}
+
+#contact form {
+    background: #F4F4F4; /* Leicht grauer Hintergrund für besseren Kontrast */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+#contact label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#contact input, #contact textarea {
+    width: 100%;
+    padding: 1rem; /* Erhöhtes Padding für mehr Komfort */
+    margin-bottom: 1.5rem; /* Größerer Abstand zwischen den Feldern */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#contact input:focus, #contact textarea:focus {
+    border-color: #A8C686; /* Fokus-Farbe passend zur Farbpalette */
+    outline: none;
+    box-shadow: 0 0 5px rgba(168, 198, 134, 0.5);
+}
+
+#contact input[type="submit"] {
+    background-color: #002E5D;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    padding: 1rem 2rem; /* Größerer Button für mehr Auffälligkeit */
+    text-align: center;
+    display: inline-block;
+    font-size: 1.2rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#contact input[type="submit"]:hover {
+    background-color: #A8C686;
+    transform: translateY(-3px);
+}
+
+#contact a {
+    color: #002E5D;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: 1rem;
+    display: block;
+    text-align: center;
+}
+
+#contact .form-field {
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #contact .wrapper {
+        padding: 2rem 1rem;
+    }
+
+    #contact form {
+        max-width: 100%;
+        padding: 1rem; /* Weniger Padding, um Platz zu sparen */
+    }
+    #contact input[type="submit"] {
+        font-size: 1rem; /* Kleinere Schriftgröße für den Button */
+        padding: 0.75rem; /* Weniger Padding für den Button */
+    }
+}
+
+@media (max-width: 480px) {
+    #contact form {
+        padding: 1rem; /* Reduziert das Padding für das Formular */
+    }
+
+    #contact input, #contact textarea {
+        font-size: 0.9rem; /* Kleinere Schriftgröße für Eingabefelder */
+    }
+
+    #contact input[type="submit"] {
+        padding: 0.75rem 1rem; /* Kleinere Schaltfläche */
+        font-size: 1rem;
+    }
+}
+
+
+
+/* Allgemeine Formularelemente */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #002E5D;
+}
+
+.form-group input, .form-group textarea {
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #A8C686;
+    outline: none;
+}
+
+.btn {
+    background: #002E5D;
+    color: #FFFFFF;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1.2rem;
+    align-self: flex-start;
+}
+
+.btn:hover {
+    background: #A8C686;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+
+
+/* Footer */
+footer {
+    background: #002E5D;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 2rem 0;
+    width: 100%;
+    margin-top: 4rem;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer nav ul li {
+    margin: 0 1rem;
+}
+
+footer nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+footer nav ul li a:hover {
+    color: #A8C686;
+}
+
+@media (max-width: 768px) {
+    footer nav ul {
+        flex-direction: column; /* Navigation in eine Spalte statt einer Reihe */
+        align-items: center;
+    }
+
+    footer nav ul li {
+        margin: 0.5rem 0; /* Vertikaler Abstand zwischen den Links */
+    }
+}
+
+
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #002E5D;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #A8C686;
+}
+
+/* Fade-In Animation */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+
+
+
+#cookie-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: #002E5D !important; /* Tiefes Marineblau */
+    color: #FFFFFF !important; /* Klares Weiß */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    z-index: 1000;
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+#cookie-banner p {
+    margin: 0;
+    font-size: 14px;
+    text-align: center; /* Text in der Mitte zentrieren */
+    margin-bottom: 10px; /* Abstand zwischen Text und Buttons */
+}
+
+#cookie-banner a {
+    color: #D8C3A5 !important; /* Warmer Sand */
+    text-decoration: underline;
+}
+
+#cookie-banner .button-group {
+    display: flex;
+    justify-content: center; /* Buttons horizontal zentrieren */
+    gap: 10px; /* Abstand zwischen den Buttons */
+}
+
+#cookie-banner button {
+    background: transparent !important;
+    color: #FFFFFF !important; /* Klares Weiß */
+    padding: 8px 16px;
+    border: 1px solid #FFFFFF !important;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cookie-banner button:hover {
+    background-color: #A8C686 !important; /* Salbeigrün für den Hover-Effekt */
+    color: #002E5D !important; /* Tiefes Marineblau für den Text bei Hover */
+    border-color: #A8C686 !important; /* Salbeigrün für den Rand bei Hover */
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+/* Impressum und Datenschutz Styling */
+#impressum, #datenschutz {
+    background-color: #FFFFFF;
+    color: #002E5D;
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#impressum h2, #datenschutz h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#impressum p, #datenschutz p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+#impressum h3, #datenschutz h3 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #002E5D;
+}
+
+#impressum .wrapper, #datenschutz .wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#datenschutz h4 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #002E5D;
+}
+
+@media (max-width: 768px) {
+    footer .wrapper {
+        padding: 1rem;
+    }
+
+    #impressum h2, #datenschutz h2 {
+        font-size: 2rem;
+    }
+
+    #impressum p, #datenschutz p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Optimierungen für die fusionierte Über uns & Projekte Sektion */
+
+
+
+#dasprojekt h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: #002E5D;
+    letter-spacing: 1.5px;
+}
+
+#dasprojekt p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #666666;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+}
+
+#dasprojekt .content-row {
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem; /* Erhöhter Abstand zwischen den Elementen */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+#dasprojekt .media {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+#dasprojekt .media img,
+#dasprojekt .media video {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#dasprojekt .media-description {
+    flex: 1;
+    margin-left: 1rem;
+}
+
+#dasprojekt .media-description p {
+    font-size: 1.4rem; /* Größere Schriftgröße für mehr Lesbarkeit */
+    line-height: 2rem; /* Erhöhter Zeilenabstand */
+    color: #002E5D;
+}
+
+#dasprojekt ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    color: #002E5D;
+
+}
+
+#dasprojekt ul li {
+    margin: 0.5rem 0;
+    font-size: 1.4rem; /* Leicht erhöhte Schriftgröße für bessere Lesbarkeit */
+    line-height: 2rem; /* Erhöhter Zeilenabstand */
+}
+
+#dasprojekt .media-description ul li:before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 0.5rem;
+    color: #A8C686;
+}
+
+#dasprojekt .media-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #002E5D;
+}
+
+.dasprojekt .btn:hover {
+    transform: translateY(-3px);
+}
+
+
+
+
+@media (max-width: 768px) {
+    #dasprojekt .content-row {
+        flex-direction: column; /* Stellt das Video und den Text untereinander statt nebeneinander */
+    }
+
+    #dasprojekt .media, #dasprojekt .media-description {
+        margin: 0 auto; /* Zentriert die Inhalte */
+    }
+
+    #dasprojekt .media-description {
+        text-align: center; /* Zentriert den Text */
+    }
+}
+
+
+/* Zentrierung und Abstandsanpassung */
+.media, .media-description {
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.media-description {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .media-description {
+        text-align: left;
+    }
+}
+
+
+/* Testimonials */
+.testimonials {
+    background-color: #B0A8B9;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+
+}
+
+.testimonials h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #002E5D;
+}
+
+.testimonial {
+    font-size: 1.4rem;
+    color: #002E5D;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.testimonial p {
+    margin: 0;
+}
+
+.btn-cta {
+    background-color: #A8C686;
+    color: #FFFFFF;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: #D8C3A5;
+    transform: translateY(-3px);
+}
+/* Förderung Sektion */
+#funding {
+    background-color: #F4F4F4; /* Leicht grauer Hintergrund, um die Sektion hervorzuheben */
+    color: #002E5D;
+
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+#funding .funding-text {
+    font-size: 1.5rem; /* Größere Schrift für den Text */
+    margin-bottom: 2rem;
+    color: #666666; /* Etwas hellere Textfarbe */
+    max-width: 800px;
+    margin: 0 auto 2rem auto; /* Zentrierter Text */
+}
+
+#funding .funding-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Damit die Logos auf kleineren Bildschirmen umgebrochen werden */
+}
+
+#funding .funding-logos img {
+    max-width: 150px; /* Einheitliche Größe für die Logos */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+#funding .funding-logos img:hover {
+    transform: scale(1.1); /* Leichte Vergrößerung bei Hover für einen dynamischen Effekt */
+}
+
+/* Responsive Anpassung für kleinere Bildschirme */
+@media (max-width: 768px) {
+    #funding .funding-logos img {
+        max-width: 120px; /* Kleinere Logos auf mobilen Geräten */
+    }
+}
