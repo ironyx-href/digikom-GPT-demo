@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Cookies akzeptieren
     document.getElementById('accept-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.io');
+        setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.iodigikom-GPT-demo');
         document.getElementById('cookie-banner').style.display = 'none';
         loadClarity();
         console.log('Cookies accepted and banner hidden');
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Cookies ablehnen
     document.getElementById('decline-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io');
+        setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io.digikom-GPT-demo');
         document.getElementById('cookie-banner').style.display = 'none';
         console.log('Cookies declined and banner hidden');
     });
@@ -171,14 +171,14 @@ document.getElementById('mehrErfahren').addEventListener('click', function(event
 console.log('Cookie accepted status:', getCookie('cookies_accepted'));
 
 document.getElementById('accept-cookies').addEventListener('click', function () {
-    setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.io');
+    setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.io.digikom-GPT-demo');
     console.log('Cookies accepted');
     document.getElementById('cookie-banner').style.display = 'none';
     loadClarity();
 });
 
 document.getElementById('decline-cookies').addEventListener('click', function () {
-    setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io');
+    setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io.digikom-GPT-demo');
     console.log('Cookies declined');
     document.getElementById('cookie-banner').style.display = 'none';
 });
