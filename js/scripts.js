@@ -95,43 +95,40 @@ document.getElementById("loadMoreBtn").addEventListener("click", function() {
     this.style.display = "none"; // Blendet den Button aus
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Cookie-Banner anzeigen, wenn noch keine Entscheidung getroffen wurde
+document.addEventListener('DOMContentLoaded', function() {
     if (!getCookie('cookies_accepted')) {
         document.getElementById('cookie-banner').style.display = 'block';
     }
 
-    // Cookies akzeptieren
-    document.getElementById('accept-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.io'); // Verwende die vollständige Domain
+    document.getElementById('accept-cookies').addEventListener('click', function() {
+        setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.io');
         document.getElementById('cookie-banner').style.display = 'none';
         loadClarity();
-        console.log('Cookies accepted');
+        console.log('Cookies accepted:', getCookie('cookies_accepted'));
     });
 
-    // Cookies ablehnen
-    document.getElementById('decline-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io'); // Verwende die vollständige Domain
+    document.getElementById('decline-cookies').addEventListener('click', function() {
+        setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io');
         document.getElementById('cookie-banner').style.display = 'none';
-        console.log('Cookies declined');
+        console.log('Cookies declined:', getCookie('cookies_accepted'));
     });
 
-    // Microsoft Clarity laden, wenn Cookies akzeptiert wurden
     if (getCookie('cookies_accepted') === 'true') {
         loadClarity();
         console.log('Loading Clarity');
     }
 });
 
-function setCookie(name, value, days) {
+function setCookie(name, value, days, domain) {
     var expires = "";
     if (days) {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    console.log('Cookie set:', name + "=" + (value || "") + expires + "; path=/");
+    var domainAttribute = domain ? "; domain=" + domain : "";
+    document.cookie = name + "=" + (value || "") + expires + "; path=/" + domainAttribute + "; Secure";
+    console.log('Cookie set:', name + "=" + (value || "") + expires + "; path=/" + domainAttribute);
 }
 
 
@@ -139,7 +136,7 @@ function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
     for (var i = 0; i < ca.length; i++) {
-        var c = ca[i].trim();  // Verwende .trim(), um sicherzustellen, dass keine führenden Leerzeichen vorhanden sind
+        var c = ca[i].trim();
         if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
@@ -154,35 +151,11 @@ function loadClarity() {
     })(window, document, "clarity", "script", "nqef003es7");
 }
 
-// Andere Funktionen und Event-Listener
 document.getElementById('mehrErfahren').addEventListener('click', function(event) {
-    event.preventDefault(); // Verhindert das Standardverhalten des Links
-
-    // Scrollen zur Sektion "Das Projekt"
+    event.preventDefault();
     document.getElementById('dasprojekt').scrollIntoView({ behavior: 'smooth' });
-
-    // Automatisches Abspielen des Videos
     var video = document.getElementById('projektVideo');
     video.play();
 });
 
-console.log('Cookie accepted status:', getCookie('cookies_accepted'));
-
-document.getElementById('accept-cookies').addEventListener('click', function () {
-    setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.io');
-    console.log('Cookies accepted');
-    document.getElementById('cookie-banner').style.display = 'none';
-    loadClarity();
-});
-
-document.getElementById('decline-cookies').addEventListener('click', function () {
-    setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io');
-    console.log('Cookies declined');
-    document.getElementById('cookie-banner').style.display = 'none';
-});
-
-if (getCookie('cookies_accepted') === 'true') {
-    console.log('Loading Clarity');
-    loadClarity();
-}
 
