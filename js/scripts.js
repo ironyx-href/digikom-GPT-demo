@@ -44,93 +44,12 @@ faders.forEach(fader => {
     appearOnScroll.observe(fader);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector("form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Verhindert die Standard-Formularübermittlung
-
-        // Extrahiere die Formulardaten
-        const name = document.querySelector("#name").value;
-        const email = document.querySelector("#email").value;
-        const subject = document.querySelector("#subject").value;
-        const message = document.querySelector("#message").value;
-
-        // Hier könntest du die Daten an einen Server senden, z.B. mit fetch oder AJAX
-        // fetch('/path/to/your/api', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({ name, email, subject, message })
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     // Hier könntest du die Antwort verarbeiten
-        // });
-
-        // Zeige eine Bestätigungsnachricht an
-        alert("Vielen Dank für Ihre Nachricht, " + name + "! Wir werden uns so schnell wie möglich bei Ihnen melden.");
-
-        // Leere das Formular nach der Übermittlung
-        document.querySelector("form").reset();
-    });
-});
-
-// Funktion zum Öffnen des Modals
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
-}
-
-// Funktion zum Schließen des Modals
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
-}
-
-// Event-Listener für den "Mehr anzeigen" Button
-document.getElementById("loadMoreBtn").addEventListener("click", function() {
-    const hiddenPosts = document.querySelectorAll('.blog-post.hidden');
-    hiddenPosts.forEach(post => {
-        post.classList.remove('hidden'); // Entfernt die Klasse "hidden"
-        post.style.display = "block"; // Zeigt den Post an
-    });
-    this.style.display = "none"; // Blendet den Button aus
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Cookie-Banner anzeigen, wenn noch keine Entscheidung getroffen wurde
-    var cookieStatus = getCookie('cookies_accepted');
-    console.log('Initial Cookie accepted status:', cookieStatus);
-    
-    if (!cookieStatus || cookieStatus === 'false') {
-        document.getElementById('cookie-banner').style.display = 'block';
-    }
-
-    // Cookies akzeptieren
-    document.getElementById('accept-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.io');
-        document.getElementById('cookie-banner').style.display = 'none';
-        loadClarity();
-        console.log('Cookies accepted and banner hidden');
-    });
-
-    // Cookies ablehnen
-    document.getElementById('decline-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io');
-        document.getElementById('cookie-banner').style.display = 'none';
-        console.log('Cookies declined and banner hidden');
-    });
-
-    // Microsoft Clarity laden, wenn Cookies akzeptiert wurden
-    if (cookieStatus === 'true') {
-        loadClarity();
-        console.log('Loading Clarity');
-    }
-});
-
-function setCookie(name, value, days, domain) {
+// Setzt ein Cookie mit einem Ablaufdatum in Stunden
+function setCookie(name, value, hours, domain) {
     var expires = "";
-    if (days) {
+    if (hours) {
         var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        date.setTime(date.getTime() + (hours * 60 * 60 * 1000)); // Stunden in Millisekunden umrechnen
         expires = "; expires=" + date.toUTCString();
     }
     var domainAttribute = domain ? "; domain=" + domain : "";
@@ -138,16 +57,31 @@ function setCookie(name, value, days, domain) {
     console.log('Cookie set:', name + "=" + (value || "") + expires + "; path=/" + domainAttribute);
 }
 
+// Liest ein Cookie
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
     for (var i = 0; i < ca.length; i++) {
-        var c = ca[i].trim();  // Verwende .trim(), um sicherzustellen, dass keine führenden Leerzeichen vorhanden sind
+        var c = ca[i].trim();
         if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
 }
 
+// Überprüft, ob der Cookie-Banner angezeigt werden muss
+function checkCookieConsent() {
+    var cookieConsent = getCookie('cookies_accepted');
+    if (!cookieConsent) {
+        document.getElementById('cookie-banner').style.display = 'block';
+    } else {
+        document.getElementById('cookie-banner').style.display = 'none';
+        if (cookieConsent === 'true') {
+            loadClarity();  // Clarity nur laden, wenn Cookies akzeptiert wurden
+        }
+    }
+}
+
+// Microsoft Clarity laden
 function loadClarity() {
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -156,7 +90,23 @@ function loadClarity() {
     })(window, document, "clarity", "script", "nqef003es7");
 }
 
-// Andere Funktionen und Event-Listener
+// Initialisierung beim Laden der Seite
+document.addEventListener('DOMContentLoaded', function () {
+    checkCookieConsent();
+
+    document.getElementById('accept-cookies').addEventListener('click', function () {
+        setCookie('cookies_accepted', 'true', 5, '.nexus-428.github.io');
+        document.getElementById('cookie-banner').style.display = 'none';
+        loadClarity();
+    });
+
+    document.getElementById('decline-cookies').addEventListener('click', function () {
+        setCookie('cookies_accepted', 'false', 5, '.nexus-428.github.io');
+        document.getElementById('cookie-banner').style.display = 'none';
+    });
+});
+
+// Event-Listener für den "Mehr Erfahren"-Button
 document.getElementById('mehrErfahren').addEventListener('click', function(event) {
     event.preventDefault(); // Verhindert das Standardverhalten des Links
 
@@ -168,24 +118,5 @@ document.getElementById('mehrErfahren').addEventListener('click', function(event
     video.play();
 });
 
-console.log('Cookie accepted status:', getCookie('cookies_accepted'));
-
-document.getElementById('accept-cookies').addEventListener('click', function () {
-    setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.io.digikom-GPT-demo');
-    console.log('Cookies accepted');
-    document.getElementById('cookie-banner').style.display = 'none';
-    loadClarity();
-});
-
-document.getElementById('decline-cookies').addEventListener('click', function () {
-    setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io.digikom-GPT-demo');
-    console.log('Cookies declined');
-    document.getElementById('cookie-banner').style.display = 'none';
-});
-
-if (getCookie('cookies_accepted') === 'true') {
-    console.log('Loading Clarity');
-    loadClarity();
-}
 
 
