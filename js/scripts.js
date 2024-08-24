@@ -195,7 +195,7 @@ if (getCookie('cookies_accepted') === 'true') {
     loadClarity();
 }
 
-console.log('Cookie accepted status:', getCookie('cookies_accepted'));
+
 
 
 
