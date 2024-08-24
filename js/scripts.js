@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Cookies akzeptieren
     document.getElementById('accept-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'true', 365, '.nexus-428.github.io'); // Verwende die Subdomain
+        setCookie('cookies_accepted', 'true', 365, '.github.io'); // Verwende die GitHub.io-Domain
         document.getElementById('cookie-banner').style.display = 'none';
         loadClarity();
         console.log('Cookies accepted');
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Cookies ablehnen
     document.getElementById('decline-cookies').addEventListener('click', function () {
-        setCookie('cookies_accepted', 'false', 365, '.nexus-428.github.io'); // Verwende die Subdomain
+        setCookie('cookies_accepted', 'false', 365, '.github.io'); // Verwende die GitHub.io-Domain
         document.getElementById('cookie-banner').style.display = 'none';
         console.log('Cookies declined');
     });
@@ -131,7 +131,7 @@ function setCookie(name, value, days, domain) {
         expires = "; expires=" + date.toUTCString();
     }
     var domainAttribute = domain ? "; domain=" + domain : "";
-    document.cookie = name + "=" + (value || "") + expires + "; path=/" + domainAttribute;
+    document.cookie = name + "=" + (value || "") + expires + domainAttribute + "; path=/";
 }
 
 function getCookie(name) {
@@ -153,6 +153,7 @@ function loadClarity() {
     })(window, document, "clarity", "script", "nqef003es7");
 }
 
+// Andere Funktionen und Event-Listener
 document.getElementById('mehrErfahren').addEventListener('click', function(event) {
     event.preventDefault(); // Verhindert das Standardverhalten des Links
 
