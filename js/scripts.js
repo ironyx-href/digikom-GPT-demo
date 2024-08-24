@@ -123,16 +123,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-function setCookie(name, value, days, domain) {
+function setCookie(name, value, days) {
     var expires = "";
     if (days) {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
-    var domainAttribute = domain ? "; domain=" + domain : "";
-    document.cookie = name + "=" + (value || "") + expires + domainAttribute + "; path=/";
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    console.log('Cookie set:', name + "=" + (value || "") + expires + "; path=/");
 }
+
 
 function getCookie(name) {
     var nameEQ = name + "=";
