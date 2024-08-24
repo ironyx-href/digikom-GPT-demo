@@ -152,6 +152,7 @@ function getCookie(name) {
     return null;
 }
 
+
 function loadClarity() {
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -193,6 +194,9 @@ if (getCookie('cookies_accepted') === 'true') {
     console.log('Loading Clarity');
     loadClarity();
 }
+
+console.log('Cookie accepted status:', getCookie('cookies_accepted'));
+
 
 
 
